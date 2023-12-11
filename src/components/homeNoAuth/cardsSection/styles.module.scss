@@ -28,29 +28,6 @@
         font-size: 15px;
         color: $lightGray;
     }
-}
-
-.card {
-    width: 340px;
-    height: 280px;
-    border-radius: 8px;
-    padding: 14px;
-    background-size: cover;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    transition: 0.3s;
-
-    .cardTitle {
-        transition: 0.3s;
-        font-weight: bold;
-        margin-bottom: 8px;
-    }
-
-    .cardDescription {
-        font-size: 15px;
-        color: $lightGray;
-    }
 
     &:hover {
         transform: scale(1.03);

@@ -5,21 +5,21 @@ import SlideComponent from "@/components/commom/slideComponent";
 import Link from "next/link";
 
 interface props {
-    newestCourses: CourseType[];
-  }
+  newestCourses: CourseType[];
+}
 
-  const SlideSection = function ({ newestCourses }: props) {
-    return (
-      <>
-        <Container fluid>
-		<p className={styles.sectionTitle}>AULAS JÁ DISPONÍVEIS</p>
-		<SlideComponent course={newestCourses} />
-		<Link href="/register">
-			<Button outline color="light" className={styles.slideSectionBtn}>Se cadastre para acessar!</Button>
-		</Link>
-	</Container>
-      </> 
-    )
-  };
-  
-  export default SlideSection;
+const SlideSection = function ({ newestCourses }: props) {
+  return (
+    <>
+      <Container >
+        <p className={styles.sectionTitle}>AULAS JÁ DISPONÍVEIS</p>
+        <SlideComponent course={newestCourses} />
+        <Link href="/register">
+          <Button outline color="light" className={styles.slideSectionBtn}>Se cadastre para acessar!</Button>
+        </Link>
+      </Container>
+    </>
+  )
+};
+
+export default SlideSection;

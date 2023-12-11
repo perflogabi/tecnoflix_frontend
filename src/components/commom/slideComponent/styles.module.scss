@@ -1,0 +1,46 @@
+.swiperContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60vh;
+}
+
+.swiper {
+    width: 100%;
+}
+
+
+@media (max-width: 1199px) and (min-width: 991px) {
+    .swiper {
+       
+       
+    }
+}
+
+@media (max-width: 991px) {
+    .swiper {
+        margin-left: 4rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .swiper{
+        width: 60%;
+        margin-left: 7rem;
+    }
+}
+
+@media (max-width: 430px) {
+    .swiper {
+        width: 72%;
+       margin-left: 3rem;
+    }
+
+}
+@media (max-width: 390px) {
+    .swiper {
+        width: 78%;
+       margin-left: 2.50rem;
+    }
+
+}

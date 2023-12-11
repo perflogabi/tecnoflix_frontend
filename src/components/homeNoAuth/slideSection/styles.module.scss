@@ -1,0 +1,49 @@
+@import "../../../../styles/colors.module.scss";
+
+.sectionTitle {
+  font-size: 20px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0;
+}
+
+.slideSectionBtn {
+  transition: 0.3s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+ 
+
+
+  &:hover {
+    border-color: $lightBlue;
+    background-color: transparent;
+    color: $lightGray;
+  }
+}
+
+@media (max-width: 1199px) and (min-width: 991px) {
+  .slideSectionBtn{
+    
+  }
+}
+
+@media (max-width: 991px) {
+  .slideSectionBtn{
+    margin: 0 auto;
+  }
+}
+@media (max-width: 590px) {
+  .slideSectionBtn{
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 367px) {
+  .slideSectionBtn{
+    margin: 0 auto;
+  }
+  
+}
