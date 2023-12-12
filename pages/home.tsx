@@ -1,4 +1,5 @@
 import HeaderAuth from "@/components/commom/headerAuth";
+import FeaturedSection from "@/components/homeAuth/featuresSection";
 import Head from "next/head";
 
 const HomeAuth = function () {
@@ -6,10 +7,10 @@ const HomeAuth = function () {
         <>
             <Head>
                 <title>Techflix - Home</title>
-                <link rel="shortcut icon" href="/favicon.svg" type="image/x-icon" />
+                <link rel="shortcut icon" href="/favicon.png" type="image/x-icon" />
             </Head>
             <main>
-                <HeaderAuth />
+               <FeaturedSection/>
             </main>
         </>
     );

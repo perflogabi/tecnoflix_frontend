@@ -23,11 +23,8 @@
     color: $lightGray;
   }
 }
-
-@media (max-width: 1199px) and (min-width: 991px) {
-  .slideSectionBtn{
-    
-  }
+.link {
+  text-decoration: none;
 }
 
 @media (max-width: 991px) {

@@ -14,7 +14,7 @@ const SlideSection = function ({ newestCourses }: props) {
       <Container >
         <p className={styles.sectionTitle}>AULAS JÁ DISPONÍVEIS</p>
         <SlideComponent course={newestCourses} />
-        <Link href="/register">
+        <Link href="/register" className={styles.link}>
           <Button outline color="light" className={styles.slideSectionBtn}>Se cadastre para acessar!</Button>
         </Link>
       </Container>
