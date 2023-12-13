@@ -3,8 +3,10 @@ import styles from "../../../../styles/profile.module.scss";
 import { FormEvent, useEffect, useState } from "react";
 import profileService from "@/services/profileService";
 import ToastComponent from "@/components/commom/toast";
+import { useRouter } from "next/navigation";
 
 const UserForm = function () {
+    const router = useRouter();
     const [color, setColor] = useState("");
     const [toastIsOpen, setToastIsOpen] = useState(false);
     const [errorMessage, setErrorMessage] = useState("");
@@ -12,6 +14,7 @@ const UserForm = function () {
     const [lastName, setLastName] = useState("");
     const [phone, setPhone] = useState("");
     const [email, setEmail] = useState("");
+    const [initialEmail, setInitialEmail] = useState("");
     const [created_at, setCreated_at] = useState("");
     const date = new Date(created_at);
     const month = date.toLocaleDateString("default", { month: "long" });
@@ -22,7 +25,7 @@ const UserForm = function () {
             setLastName(user.lastName);
             setPhone(user.phone);
             setEmail(user.email);
-            // setChangeEmail(user.email);
+            setInitialEmail(user.email);
             setCreated_at(user.createdAt);
         });
     }, []);
@@ -43,6 +46,10 @@ const UserForm = function () {
             setErrorMessage("Informações alteradas com sucesso!");
             setColor("bg-success");
             setTimeout(() => setToastIsOpen(false), 1000 * 3);
+            if (email != initialEmail) {
+                sessionStorage.clear;
+                router.push("/")
+            }
         } else {
             setToastIsOpen(true);
             setErrorMessage("Você não pode mudar para esse email!");
