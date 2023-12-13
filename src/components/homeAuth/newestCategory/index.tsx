@@ -13,7 +13,7 @@ const NewestCategory = function () {
                 <p>Loading</p>
             </>
 
-        )
+        );
 
     return (
         <>
