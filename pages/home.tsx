@@ -1,3 +1,4 @@
+import Footer from "@/components/commom/footer";
 import HeaderAuth from "@/components/commom/headerAuth";
 import FavoritesCategory from "@/components/homeAuth/favoriteCategory";
 import FeaturedCategory from "@/components/homeAuth/featuredCategory";
@@ -19,6 +20,7 @@ const HomeAuth = function () {
                <FavoritesCategory/>
                {/* <FeaturedCategory />  */}
                <ListCategories/>
+               <Footer/>
             </main>
         </>
     );
