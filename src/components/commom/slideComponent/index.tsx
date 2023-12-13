@@ -12,9 +12,9 @@ interface props {
 const SlideComponent = function ({ course }: props) {
     let slideCount = 0;
 
-    if (course.length > 4) {
+    if (Array.isArray(course) && course.length > 4) {
         slideCount = 4;
-    } else if (course) {
+    } else if (Array.isArray(course)) {
         slideCount = course.length;
     }
 
