@@ -2,6 +2,7 @@ import courseService from "@/services/courseService";
 import useSWR from "swr";
 import SlideComponent from "@/components/commom/slideComponent";
 import styles from "../../../../styles/slideCategory.module.scss";
+import PageSpinner from "@/components/commom/spinner";
 
 const NewestCategory = function () {
     const { data, error } = useSWR("/newest", courseService.getNewestCourses);
@@ -9,11 +10,9 @@ const NewestCategory = function () {
     if (error) return error;
     if (!data)
         return (
-            <>
-                <p>Loading</p>
-            </>
-
+            <PageSpinner />
         );
+
 
     return (
         <>

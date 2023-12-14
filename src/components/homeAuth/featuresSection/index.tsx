@@ -4,6 +4,7 @@ import useSWR from "swr";
 import HeaderAuth from "@/components/commom/headerAuth";
 import { Button, Container } from "reactstrap";
 import Link from "next/link";
+import PageSpinner from "@/components/commom/spinner";
 
 const FeaturedSection = function () {
     const { data, error } = useSWR("/featured", courseService.getFeaturedCourses);
@@ -11,10 +12,9 @@ const FeaturedSection = function () {
     if (error) return error;
     if (!data)
         return (
-            <>
-                <p>Loading...</p>
-            </>
+            <PageSpinner />
         );
+
 
     return (
         <>
@@ -24,8 +24,8 @@ const FeaturedSection = function () {
                         backgroundImage: `linear-gradient(to bottom, #6666661a, #151515), url(${process.env.NEXT_PUBLIC_BASEURL}/${course.thumbnailUrl})`,
                         backgroundSize: "cover",
                         backgroundPosition: "center",
-                          height: "480px",
-                        }}>
+                        height: "480px",
+                    }}>
                         <HeaderAuth />
                         <Container className="pt-4">
                             <p className={styles.title}>{course.name}</p>
