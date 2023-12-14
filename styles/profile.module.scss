@@ -108,6 +108,7 @@
     font-size: 15px;
     padding: 6px 20px;
     transition: 0.4s;
+    background-color: $darkBlue;
 
     &:hover {
         border-color: $lightBlue;
@@ -137,11 +138,16 @@
     padding: 14px 0px;
 
     &:hover {
-        background-color: transparent;
-        border-color: $lightBlue;
+        background-color: #2b2b2b;
         color: $lightGray;
+    } 
+    
+    &:focus{
+        background-color: transparent;
+        box-shadow: none;
     }
 }
+    
 
 .footer {
     background-color: black;
