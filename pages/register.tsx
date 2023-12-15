@@ -16,7 +16,7 @@ const Register = function () {
     const [toastMessage, setToastMessage] = useState("");
 
     useEffect(() => {
-        if (sessionStorage.getItem("onebitflix-token")) {
+        if (sessionStorage.getItem("techflix-token")) {
           router.push("/home");
       }
     }, []);
@@ -71,7 +71,7 @@ const Register = function () {
                     <p className={styles.formTitle}>Bem-vindo(a) ao TechFlix!</p>
                     <Form className={styles.form} onSubmit={handleRegister}>
                         <p className="text-center">
-                            <strong>Bem-vindo(a) ao OneBitFlix!</strong>
+                            <strong>Bem-vindo(a) ao TechFlix!</strong>
                         </p>
                         <FormGroup>
                             <Label for="firstName" className={styles.label}>

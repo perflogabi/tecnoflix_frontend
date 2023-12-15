@@ -1,30 +1,42 @@
-import HeaderAuth from "@/components/commom/headerAuth";
-import styles from "../../styles/coursePage.module.scss";
-import Head from "next/head";
+import { useEffect, useState } from 'react';
+import Head from 'next/head';
+import { useRouter } from 'next/router';
+import HeaderAuth from '@/components/commom/headerAuth';
+import { CourseType } from '@/services/courseService';
 
-import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
-
-import courseService, { CourseType } from "@/services/courseService";
-
-const CoursePage = function () {
+const CoursePage = () => {
     const [course, setCourse] = useState<CourseType>();
     const router = useRouter();
     const { id } = router.query;
 
-    const getCourse = async function () {
-        if (typeof id !== "string") return;
-
-        const res = await courseService.getEpisodes(id);
-
-        if (res.status === 200) {
-            setCourse(res.data);
-        }
-    };
-
     useEffect(() => {
-        getCourse();
+        const fetchCourse = async () => {
+            try {
+                const res = await fetch(`${process.env.NEXT_PUBLIC_BASEURL}/courses/${id}`);
+                const data = await res.json();
+        
+                console.log('Raw API Response:', res);
+        
+                if (res.status === 200) {
+                    console.log('Course Data:', data);
+                    setCourse(data);
+                } else if (res.status === 404) {
+                    router.push('/home'); 
+                    return;
+                } else {
+                    console.error(`Unexpected status code: ${res.status}, ${data.message}`);
+                }
+            } catch (error) {
+                console.error('Error fetching course data:', error);
+            }
+        
+        };
+
+        if (id) {
+            fetchCourse();
+        }
     }, [id]);
+    console.log('Render Course Page. Course:', course);
 
     return (
         <>
@@ -34,10 +46,11 @@ const CoursePage = function () {
             </Head>
             <main>
                 <HeaderAuth />
-                <p>{course?.name}</p>
+                {course && <p>{course.name}</p>}
             </main>
         </>
     );
+    
 };
 
 export default CoursePage;
